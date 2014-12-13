@@ -47,7 +47,6 @@ function CourseDownloader() {
 				url: "https://telaris.wlu.ca/ssb_prod/bwckschd.p_get_crse_unsec",
 				"rejectUnauthorized": false,
 				form: data,
-				proxy: 'http://127.0.0.1:8888',
 				headers: {
 							'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
 							'Accept-Encoding' : 'gzip, deflate',
