@@ -28,7 +28,11 @@ function CourseScraper() {
 
 
 	this.processHtml = function(body) {
-		console.log(body);
+		
+		var script = new WLUCourseScript();		
+		var courseData = script.parseScrapedData(body);
+
+		console.log(courseData);
 	};
 
 

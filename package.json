@@ -17,6 +17,7 @@
   "devDependencies": {
     "chai": "~1.9.2",
     "chance": "0.6.1",
+    "cheerio": "^0.18.0",
     "form-data": "^0.2.0",
     "lodash-node": "^2.4.1",
     "mocha": "~1.21.5",
