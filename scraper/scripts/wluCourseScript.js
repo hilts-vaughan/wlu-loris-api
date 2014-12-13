@@ -15,6 +15,7 @@ function WLUCourseScript() {
 
 		var scriptConfig = {
 			url: 'https://telaris.wlu.ca/ssb_prod/bwckschd.p_get_crse_unsec'
+
 		};
 
 		// Merge in the default settings and then over-ride them with any scraper specific settings that might be required

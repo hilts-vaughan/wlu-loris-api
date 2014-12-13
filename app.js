@@ -11,7 +11,7 @@ sslRootCAs.inject()
 
 var scraper = new CourseScraper();
 scraper.start();
-return;
+
 
 
 //Server instance with registered options

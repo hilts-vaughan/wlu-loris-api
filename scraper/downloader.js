@@ -28,13 +28,25 @@ function CourseDownloader() {
 
 
 		console.log(config);
+		console.log(config.postData);
 		request.post(
 			{
-				url: config.url,
+				url: "https://telaris.wlu.ca/ssb_prod/bwckschd.p_get_crse_unsec",
 				"rejectUnauthorized": false,
 				form: config.postData,
 				headers: {
-        				'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2239.2 Safari/537.36'
+							'Accept': '*/*',
+							'Accept-Encoding' : 'gzip, deflate',
+							'Accept-Language' : 'en-US,en;q=0.8',
+							'Cache-Control': 'no-cache',
+							'Connection': 'keep-alive',
+							'Content-Type': 'application/x-www-form-urlencoded',
+							'Cookie':'f5_cspm=1234; bbbbbbbbbbbbbbb=JKKCJMKHGFNLKNLFLLHFLFFKIGBGEDJKPKKJAOAOPMADBCLJCLLBFDGCKJDALCAFGMMKGKACOOKDIINFOMDFADAGIJJMNOHPELKDCIPCLLBJKKEOAPJBCDLOFOFLPCBI; BIGipServerpool_ssbanner=190056970.20480.0000; bbbbbbbbbbbbbbb=OHGKMHNHCIILONBFCMDKILPBHIAOOPPOOAIFFMLFNEIDEGEBMGMAPILJLBFAIEBFIDIOOFCBOCDCJDAKIMBAPFBGPFOMCBFMAENHDBDMKMFJCNMFOBMIDKMIMMLCCJIJ',
+							'Host': 'telaris.wlu.ca',
+							'Origin': 'chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm',
+							'Pragma': 'no-cache',
+							'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2248.0 Safari/537.36'
+
     			}
 			}
 			, function ocallback(err, httpResponse, body) {
@@ -43,6 +55,7 @@ function CourseDownloader() {
     			return console.error('upload failed:', err);
   			}
 
+  			console.log(httpResponse.headers.location);
   			events.emit('html', body);
 		});
 

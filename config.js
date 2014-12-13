@@ -1,5 +1,5 @@
 exports.api = {
-	name: 'Calendar App!',
+	name: 'Ellucian Company Scraper',
 	version: '2.0.0'
 };
 
