@@ -4,6 +4,16 @@ var email = require("emailjs");
 var domain = require('domain');
 var config = require('./config');
 
+var CourseScraper = require('./scraper/courseScraper');
+var sslRootCAs = require('ssl-root-cas/latest')
+sslRootCAs.inject()
+
+
+var scraper = new CourseScraper();
+scraper.start();
+return;
+
+
 //Server instance with registered options
 var api = restify.createServer({
 	name: config.api.name,
