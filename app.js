@@ -7,9 +7,11 @@ var config = require('./config');
 var CourseScraper = require('./scraper/courseScraper');
 
 
-
-var scraper = new CourseScraper();
-scraper.start();
+// Check if we're running in scrape before we actually try and scrape the fresh content first
+if(process.argv[2] == "-scrape") {
+	var scraper = new CourseScraper();
+	scraper.start();
+}
 
 
 
