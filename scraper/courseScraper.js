@@ -2,7 +2,7 @@ var util = require('util');
 var fs = require('fs');
 var CourseDownloader = require('./downloader');
 var WLUCourseScript = require('./scripts/wluCourseScript');
-var CoursePersister = require('./CoursePersister');
+var CoursePersister = require('./coursePersister');
 
 /*
 	A class responsible for scraping the course data from the EEllucian Company L.P dynamic scheduling system.
