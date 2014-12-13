@@ -51,6 +51,7 @@ function WLUCourseScript() {
 
  			// Log our lock onto the course name
  			var courseCode = that.parseCourseCode(courseText);
+ 			console.log(courseText);
  			console.log("Found course in department, course code is: " + courseCode);
  			var newCourse = {};
  			newCourse.code = courseCode;
@@ -104,7 +105,9 @@ function WLUCourseScript() {
 
 
 	this.parseCourseCode = function(courseLine) {
-		return courseLine.split(" - ")[2].trim();
+		var lines = courseLine.split(" - ");
+		return lines[lines.length - 2].trim();
+
 	};
 
 	/*

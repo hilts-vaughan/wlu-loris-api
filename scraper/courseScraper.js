@@ -2,6 +2,7 @@ var util = require('util');
 var fs = require('fs');
 var CourseDownloader = require('./downloader');
 var WLUCourseScript = require('./scripts/wluCourseScript');
+var CoursePersister = require('./CoursePersister');
 
 /*
 	A class responsible for scraping the course data from the EEllucian Company L.P dynamic scheduling system.
@@ -22,6 +23,7 @@ function CourseScraper() {
 		// Bootstrap with the WLU scraper if nothing else suitable can be found
 		scriptName = scriptName || "wluCourseScript";
 
+		console.log("Executing scraper script " + scriptName);
 		downloader.getHTML(new WLUCourseScript().getConfiguration());
 
 	};
@@ -29,10 +31,16 @@ function CourseScraper() {
 
 	this.processHtml = function(body) {
 		
+		console.log("Attempting to parse data...");
 		var script = new WLUCourseScript();		
 		var courseData = script.parseScrapedData(body);
 
-		console.log(courseData);
+		// We need some sort of persistance layer; so for now we'll just dump it into some sort of 
+
+		console.log("All done. Persisting to DB...");
+		var persister = new CoursePersister();
+		persister.persistCourses(courseData);		
+
 	};
 
 

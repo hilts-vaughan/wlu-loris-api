@@ -20,7 +20,7 @@ function DefaultScript() {
 					sel_ptrm:	'dummy',
 					sel_attr:	'dummy',
 					sel_camp:	'W',
-					sel_subj:	'CP',
+					sel_subj:	'',
 					sel_crse:	'',
 					sel_title:	'',
 					sel_levl:	'%',
