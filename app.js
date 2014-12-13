@@ -6,8 +6,6 @@ var config = require('./config');
 
 var CourseScraper = require('./scraper/courseScraper');
 
-var sslRootCAs = require('ssl-root-cas/latest')
-sslRootCAs.inject();
 
 
 var scraper = new CourseScraper();
