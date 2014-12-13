@@ -1,6 +1,5 @@
 var restify = require('restify');
 var config = require('../config');
-var CalendarController = require('../controllers/calendarController');
 
 var rateLimit = restify.throttle({
 	burst: config.limiter.defaultBurstRate,
@@ -8,18 +7,14 @@ var rateLimit = restify.throttle({
 	ip: true
 });
 
-function CalendarRoutes(api) {
-	api.get('/api/calendar/weekday', rateLimit, function(req, res, next) {
-		var calCtrl = new CalendarController(req, res, next);
+function CourseRoutes(api) {
 
-		calCtrl.getCalendarDay();
-	});
+	/*
+		A simple route for fetching every single course available
+	 */
+	api.get('/courses', rateLimit, function(req, res, next) {
 
-	api.post('/api/calendar/appointment', rateLimit, function(req, res, next) {
-		var calCtrl = new CalendarController(req, res, next);
-
-		calCtrl.postCalendarAppointment();
 	});
 }
 
-module.exports.routes = CalendarRoutes;
+module.exports.routes = CourseRoutes;

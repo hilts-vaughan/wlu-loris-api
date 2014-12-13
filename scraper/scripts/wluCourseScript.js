@@ -145,6 +145,7 @@ function WLUCourseScript() {
 	  		var time = splitTimes[i].match(/(\d+)(?::(\d\d))?\s*(p?)/);
 	  		d.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
 	  		d.setMinutes( parseInt(time[2]) || 0 );
+	  		d.setSeconds(0, 0);
   		
   			times.push(d);
   		}	

@@ -13,6 +13,7 @@ function CoursePersister() {
 
 		var courseCollection = db.get('courses');
 		courseCollection.drop();
+		
 		courses.forEach(function(course) {
 			courseCollection.insert(course);
 		});
