@@ -43,7 +43,7 @@ api.use(function(req, res, next) {
 //Global error handler
 api.use(function(req, res, next) {
 	var domainHandler = domain.create();
-	
+
 	domainHandler.on('error', function(err) {
 		var errMsg = 'Request: \n' + req + '\n';
 		errMsg += 'Response: \n' + res + '\n';
@@ -89,7 +89,7 @@ fs.readdirSync('./routes').forEach(function (curFile) {
 	}
 });
 
-api.listen(config.environment.port, function() {
+api.listen(process.env.PORT || config.environment.port, function() {
 	var dashChars = '+' + Array(32 + api.url.length + config.api.name.length).join('-') + '+';
 	console.log(dashChars);
 	console.log('| Application `%s` is running at %s |', config.api.name, api.url);
