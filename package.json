@@ -1,5 +1,5 @@
 {
-  "name": "WLU Loris API",
+  "name": "loris",
   "description": "Starting point for building a scalable Restify API",
   "version": "2.0.0",
   "author": "Matthew Vita <matthewvita@live.com>",
