@@ -1,7 +1,7 @@
 var DefaultScript = require('./default')
 var _ = require('lodash-node');
 var cheerio = require('cheerio');
-
+var moment = require('moment');
 
 /*
 	Defines a simple script for download configuration of a specific course page and also
@@ -142,14 +142,29 @@ function WLUCourseScript() {
 
 		for(var i = 0; i < 2; i++) {
 			var d = new Date();
-	  		var time = splitTimes[i].match(/(\d+)(?::(\d\d))?\s*(p?)/);
-	  		d.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
-	  		d.setMinutes( parseInt(time[2]) || 0 );
-	  		d.setSeconds(0, 0);
-  		
-  			times.push(d);
+
+			var hour = parseInt(splitTimes[i].split(" ")[0].split(":")[0]);
+			var minute = parseInt(splitTimes[i].split(" ")[0].split(":")[1]);
+
+			var flag = (splitTimes[i].split(" ")[1]);
+
+			if(flag == 'pm' && hour < 12) {
+				hour += 12;
+			}
+			else if(flag == 'am' && hour == 12) {
+				hour -= 12;
+			}
+				
+
+
+			d.setHours(hour);
+			d.setMinutes(minute);
+			d.setSeconds(0, 0);
+
+  			times.push(d);  			
   		}	
 
+  		console.log(times);
   		return times;
 	};
 
