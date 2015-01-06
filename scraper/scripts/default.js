@@ -10,7 +10,7 @@ function DefaultScript() {
 			postData: {
 					sel_subj:	'dummy',
 					sel_camp:	'dummy',
-					term_in:	'201409',
+					term_in:	'201501',
 					sel_day:	'dummy',
 					sel_schd:	'dummy',
 					sel_insm:	'dummy',
