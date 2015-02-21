@@ -1,1 +1,1 @@
-web: node app.js -scrape
+web: node app.js
