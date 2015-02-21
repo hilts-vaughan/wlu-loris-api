@@ -13,7 +13,9 @@ if(process.argv[2] == "-scrape") {
 	scraper.start();
 }
 
+process.env.TZ = 'US/Eastern';
 
+console.log(new Date(2015, 05, 12));
 
 //Server instance with registered options
 var api = restify.createServer({
